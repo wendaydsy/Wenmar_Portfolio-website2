@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wenmar Miflores | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="#home" class="logo"> My Portfolio
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <p class="tag">WELCOME TO MY PORTFOLIO</p>
+        <h1>Hi, I'm <span>Wenmar Miflores</span></h1>
+        <h2>A Future IT Professional</h2>
+        <p class="description">
+            I am a first-year BSIT student who enjoys learning about
+            computers, coding, and web development. I want to improve
+            my skills and create useful websites and applications.
+        </p>
+        <div class="buttons">
+            <a href="#projects" class="btn">View My Projects</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+    </div>
+
+    <div class="profile-picture">
+        <img src="MyImage.jpg" alt="My profile picture">
+    </div>
+</section>
+
+<section id="about" class="section">
+    <p class="tag">GET TO KNOW ME</p>
+    <h2>About <span>Me</span></h2>
+    <p>
+        Hello! I am Wenmar Miflores, a first-year Bachelor of Science
+        in Information Technology student. I enjoy learning new things
+        about computers and technology. My goal is to become a skilled
+        IT professional and build websites that are useful and easy to use.
+    </p>
+</section>
+
+<section id="skills" class="section">
+    <p class="tag">WHAT I'M LEARNING</p>
+    <h2>My <span>Skills</span></h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Creating the structure of websites.</p>
+        </div>
+        <div class="card">
+            <h3>CSS</h3>
+            <p>Designing websites with colors and styles.</p>
+        </div>
+        <div class="card">
+            <h3>JavaScript</h3>
+            <p>Learning how to make websites interactive.</p>
+        </div>
+        <div class="card">
+            <h3>Programming</h3>
+            <p>Practicing coding and problem-solving.</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="section">
+    <p class="tag">MY WORK</p>
+    <h2>My <span>Projects</span></h2>
+
+    <div class="cards">
+        <div class="card project-card">
+            <div class="project-icon">🌐</div>
+            <h3>Personal Portfolio</h3>
+            <p>A website that introduces me and shows my skills.</p>
+            <span class="technology">HTML • CSS</span>
+        </div>
+
+        <div class="card project-card">
+            <div class="project-icon">📝</div>
+            <h3>To-Do List</h3>
+            <p>A simple design for organizing daily tasks.</p>
+            <span class="technology">HTML • CSS </span>
+        </div>
+
+        <div class="card project-card">
+            <div class="project-icon">💻</div>
+            <h3>Programming Exercises</h3>
+            <p>My practice activities in programming and logic.</p>
+            <span class="technology">Programming</span>
+        </div>
+    </div>
+</section>
+
+<section id="experience" class="section">
+    <p class="tag">MY JOURNEY</p>
+    <h2>My <span>Experience</span></h2>
+    <div class="card experience-card">
+        <h3>BSIT Student</h3>
+        <p class="technology">Currently Studying</p>
+        <p>
+            I am learning about information technology, computer
+            programming, algorithms, and website development.
+            I continue to practice and improve my skills through
+            school activities and personal projects.
+        </p>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <p class="tag">LET'S CONNECT</p>
+    <h2>Contact <span>Me</span></h2>
+    <p>Feel free to contact me for questions or project ideas.</p>
+
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Prepare Email</button>
+    </form>
+    <p class="email">Email: Mifloreswenmar123@Gmail.com</p>
+</section>
+
+<footer>
+    <p>© 2026 Wenmar Miflores | My Coding Portfolio</p>
+    <a href="#home">Back to Top ↑</a>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".section, .card").forEach(element => {
+        element.classList.add("hidden");
+        observer.observe(element);
+    });
+
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        const subject = encodeURIComponent("Portfolio Contact from " + name);
+        const body = encodeURIComponent(
+            "Name: " + name +
+            "\nEmail: " + email +
+            "\n\nMessage: " + message
+        );
+
+        window.location.href =
+            "mailto:Mifloreswenmar123@gmail.com?subject=" + subject + "&body=" + body;
+    });
+</script>
+
+</body>
+</html>
